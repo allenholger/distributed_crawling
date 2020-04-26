@@ -6,13 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="distributed_crawling_core" />
+        <module name="distributed_crawling_deployment" />
         <module name="distributed_crawling_runtime" />
+        <module name="distributed_crawling_core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="distributed_crawling" target="1.5" />
       <module name="distributed_crawling_core" target="1.7" />
+      <module name="distributed_crawling_deployment" target="1.7" />
       <module name="distributed_crawling_runtime" target="1.7" />
     </bytecodeTargetLevel>
   </component>

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/distributed_crawling.iml" filepath="$PROJECT_DIR$/.idea/distributed_crawling.iml" />
       <module fileurl="file://$PROJECT_DIR$/distributed_crawling_core/distributed_crawling_core.iml" filepath="$PROJECT_DIR$/distributed_crawling_core/distributed_crawling_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/distributed_crawling_deployment/distributed_crawling_deployment.iml" filepath="$PROJECT_DIR$/distributed_crawling_deployment/distributed_crawling_deployment.iml" />
       <module fileurl="file://$PROJECT_DIR$/distributed_crawling_runtime/distributed_crawling_runtime.iml" filepath="$PROJECT_DIR$/distributed_crawling_runtime/distributed_crawling_runtime.iml" />
     </modules>
   </component>

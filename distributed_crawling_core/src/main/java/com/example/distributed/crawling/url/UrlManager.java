@@ -1,12 +1,13 @@
 package com.example.distributed.crawling.url;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.logging.Logger;
 
 
 /**
@@ -14,7 +15,7 @@ import java.util.logging.Logger;
  */
 
 public class UrlManager {
-    private static final Logger log = Logger.getLogger("UrlManager");
+    private static final Logger log = LoggerFactory.getLogger(UrlManager.class);
     /**
      * 未使用的url池，该池是并发的链表队列，它是线程安全的
      */
