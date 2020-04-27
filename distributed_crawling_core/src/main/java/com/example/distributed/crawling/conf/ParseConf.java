@@ -1,15 +1,16 @@
 package com.example.distributed.crawling.conf;
 
-import org.apache.commons.configuration2.*;
-import org.apache.commons.configuration2.builder.BasicConfigurationBuilder;
-import org.apache.commons.configuration2.builder.FileBasedBuilderProperties;
-import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.PropertiesConfiguration;
+import org.apache.commons.configuration2.XMLConfiguration;
+import org.apache.commons.configuration2.YAMLConfiguration;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * 本类是解析配置文件类
@@ -24,7 +25,10 @@ public class ParseConf {
      * @param
      */
     public static Object parseFile(String filePath){
-        String fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.lastIndexOf("."));
+        String fileName = null;
+        if(filePath.lastIndexOf(".") != -1){
+            fileName = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.lastIndexOf("."));
+        }
         if(filePath.endsWith(".properties")){
             log.info("解析的文件是：" + fileName + ".properties");
             try {
@@ -53,14 +57,15 @@ public class ParseConf {
         }else if (filePath.endsWith("")){
             fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
             log.info("解析的文件是：" + fileName);
-            //BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            //reader.readLine();
-
+            MasterOrSlaveConfigure masterOrSlaveConfigure = new MasterOrSlaveConfigure();
+            try {
+                masterOrSlaveConfigure.read(new FileReader(filePath));
+                return masterOrSlaveConfigure;
+            } catch (ConfigurationException | IOException e) {
+                log.info(e.getClass().getSimpleName() + ", 异常的原因：" + e.getMessage());
+            }
         }
         return null;
     }
 
-    public static void main(String[] args) {
-        ParseConf.parseFile("conf.properties");
-    }
 }
