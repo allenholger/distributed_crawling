@@ -39,12 +39,12 @@ public class URLMessage implements Serializable {
      */
     private Map<String, Object> entity;
 
-    public URLMessage(String url, Map<String, String> param, Map<String, Object> header, String method, Map<String, Object> entity) {
+    public URLMessage(String url, Map<String, String> param, Map<String, Object> header, Map<String, Object> entity, String method) {
         this.url = url;
         this.param = param;
         this.header = header;
-        this.method = method;
         this.entity = entity;
+        this.method = method;
     }
 
     public URLMessage() {
